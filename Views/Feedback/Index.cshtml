@@ -1,0 +1,24 @@
+﻿@model IEnumerable<QQVault.Models.Feedback>
+
+<h2>Feedback List</h2>
+
+<table class="bluetable">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Message</th>
+            <th>User</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var feedback in Model)
+        {
+            <tr>
+                <td>@feedback.Title</td>
+                <td>@feedback.Message</td>
+                <td>@feedback.User.FirstName @feedback.User.LastName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

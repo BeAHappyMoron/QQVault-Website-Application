@@ -1,0 +1,76 @@
+﻿@model UserCreateViewModel
+
+@{
+    ViewBag.Title = "Create User";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<!-- Include this for editing -->
+
+<form asp-action="Create" method="post">
+
+    <div class="mb-3">
+        <label asp-for="SelectedRole" class="form-label">Role</label>
+        <select asp-for="SelectedRole" class="form-select">
+            <option value="">-- Select a Role --</option>
+            @foreach (var role in Enum.GetValues(typeof(UserRole)))
+            {
+                <option value="@role">@role</option>
+            }
+        </select>
+        <span asp-validation-for="SelectedRole" class="text-danger"></span>
+    </div>
+
+
+    <div class="mb-3">
+        <label asp-for="UserType" class="form-label"></label>
+        <select asp-for="UserType" class="form-select" asp-items="Html.GetEnumSelectList<UserType>()"></select>
+        <span asp-validation-for="UserType" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NumberInput" class="form-label"></label>
+        <input asp-for="NumberInput" class="form-control" />
+        <span asp-validation-for="NumberInput" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CellPhoneNumber" class="form-label"></label>
+        <input asp-for="CellPhoneNumber" class="form-control" />
+        <span asp-validation-for="CellPhoneNumber" class="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

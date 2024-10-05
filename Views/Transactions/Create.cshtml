@@ -1,0 +1,51 @@
+﻿@model QQVault.Models.Transaction
+
+@{
+    ViewData["Title"] = "Create Transaction";
+    var loggedInAccountNumber = ViewBag.LoggedInAccountNumber ?? ""; // Get the source account number from ViewBag
+}
+
+<h2>Create Transaction</h2>
+<hr />
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        @TempData["Message"]
+    </div>
+}
+
+<form asp-action="Create">
+    <div class="form-group mb-3">
+        <label asp-for="Amount" class="control-label">Amount</label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="TransactionType" class="control-label">Transaction Type</label>
+        <select asp-for="TransactionType" class="form-control" asp-items="ViewBag.TransactionTypes">
+            <option value="">-- Select Transaction Type --</option>
+        </select>
+        <span asp-validation-for="TransactionType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Source Account Number</label>
+        <!-- Use ViewBag to populate the account number instead of using a non-existent model property -->
+        <input type="text" name="sourceAccountNumber" class="form-control" value="@loggedInAccountNumber" readonly />
+        <span class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label>Destination Account Number</label>
+        <input type="text" name="destinationAccountNumber" class="form-control" placeholder="Enter Destination Account Number" />
+        <span class="text-danger"></span>
+    </div>
+
+    <div class="form-group d-flex">
+        <input type="submit" value="Create" class="btn btn-primary" />
+        <a asp-controller="Dashboard" asp-action="ClientDashboard" class="btn btn-secondary ms-2">Back to Dashboard</a>
+    </div>
+</form>

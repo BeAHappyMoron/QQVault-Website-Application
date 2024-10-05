@@ -1,0 +1,58 @@
+﻿@model QQVault.Models.ViewModels.UserDetailsViewModel
+
+@{
+    ViewData["Title"] = "User Profile";
+}
+
+<h2 class="text-white text-center">Your <span class="text-animate">Profile</span></h2>
+<hr />
+
+<!-- User Picture Section -->
+<div class="text-center mb-4">
+    <img src="~/images/profile-placeholder.png" alt="User Profile Picture" class="rounded-circle border border-primary" style="width: 150px; height: 150px; object-fit: cover;">
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h3>@Model.FirstName @Model.LastName</h3>
+        <p>Email address: @Model.Email</p>
+
+        <!-- Status with Color Coding -->
+        User Status:
+        <span class="badge
+        @(Model.UserStatus == "Healthy" ? "bg-success" :
+         Model.UserStatus == "Moderate" ? "bg-warning" :
+        "bg-danger")">
+            @Model.UserStatus
+        </span>
+        <p>Total Balance: @Model.TotalBalance.ToString("C2")</p>
+    </div>
+    <div class="card-body">
+        <h5>Bank Accounts</h5>
+        <ul class="list-group">
+            @foreach (var account in Model.BankAccounts)
+            {
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Account Number: @account.AccountNumber
+                    <span class="badge bg-primary rounded-pill">@account.Balance.ToString("C2")</span>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+@if (Model.BankAccounts.Any(account => account.Balance < 500))
+{
+    <div class="alert alert-warning mt-4">
+        <h5>Bank Advice</h5>
+        <p>Your account balance is below R500. Here are some tips to manage your finances:</p>
+        <ul>
+            <li>Consider setting up a budget to track your spending.</li>
+            <li>Look for ways to increase your income, such as taking on extra work or freelance projects.</li>
+            <li>Avoid unnecessary expenses and save whenever possible.</li>
+            <li>Consider speaking with a financial adviser for personalized advice.</li>
+        </ul>
+    </div>
+}
+
+<a asp-controller="Dashboard" asp-action="ClientDashboard" class="btn btn-outline-primary">Back to Dashboard</a>

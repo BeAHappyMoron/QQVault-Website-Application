@@ -1,0 +1,53 @@
+﻿@model QQVault.Models.ViewModels.UserDetailsViewModel
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h2>User Details</h2>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <p><strong>First Name:</strong> @Model.FirstName</p>
+        <p><strong>Last Name:</strong> @Model.LastName</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Total Balance:</strong> @Model.TotalBalance.ToString("C2")</p>
+        <p>
+            <strong>User Status:</strong>
+            <span class="badge @(Model.UserStatus == "Healthy" ? "bg-success" : "bg-danger")">@Model.UserStatus</span>
+        </p>
+        <div class="d-flex justify-content-end">
+            <a asp-controller="Users" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary me-2">Edit Details</a>
+            <a asp-controller="Dashboard" asp-action="AdminDashboard" class="btn btn-success">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+<h3>Bank Accounts</h3>
+
+@if (Model.BankAccounts == null || !Model.BankAccounts.Any())
+{
+    <div class="alert alert-warning" role="alert">
+        No bank accounts found for this user.
+    </div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Account Number</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var account in Model.BankAccounts)
+            {
+                <tr>
+                    <td>@account.AccountNumber</td>
+                    <td>@account.Balance.ToString("C2")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

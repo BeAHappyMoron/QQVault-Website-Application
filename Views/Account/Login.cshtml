@@ -1,0 +1,32 @@
+﻿@model QQVault.Models.ViewModels.UserViewModels.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-action="Login" method="post">
+    <input type="hidden" asp-for="ReturnUrl" />
+
+    <div class="mb-3">
+        <label asp-for="NumberInput" class="form-label">Student/ID/Staff Number</label>
+        <input asp-for="NumberInput" class="form-control" placeholder="Enter your Student/ID/Staff Number" />
+        <span asp-validation-for="NumberInput" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label">Password</label>
+        <input asp-for="Password" class="form-control" placeholder="Enter your Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-check">
+        <input asp-for="RememberMe" class="form-check-input" />
+        <label asp-for="RememberMe" class="form-check-label">Remember Me</label>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Login</button>
+</form>

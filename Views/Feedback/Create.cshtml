@@ -1,0 +1,50 @@
+﻿@model QQVault.Models.Feedback
+
+<h2>Submit <span class="text-animate">Feedback</span></h2>
+<h5>Let's hear what you have to say!</h5>
+
+<form asp-action="Create" method="post" class="mt-2">
+
+    <!-- Title field -->
+    <div class="form-group mt-4">
+        <label asp-for="Title" class="mb-2">Title</label>
+        <input asp-for="Title" class="form-control" placeholder="Enter a brief title" aria-label="Title" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <!-- Message field -->
+    <div class="form-group mb-4 mt-3">
+        <label asp-for="Message" class="mb-2">Message</label>
+        <textarea asp-for="Message" class="form-control" placeholder="Enter your feedback" aria-label="Message"></textarea>
+        <span asp-validation-for="Message" class="text-danger"></span>
+    </div>
+
+    <!-- Rating field -->
+    <div class="form-group mb-4 mt-3">
+        <label class="mb-2">Rating</label>
+        <div>
+            <label class="me-2">
+                <input type="radio" name="Rating" value="1" required> 1 Star
+            </label>
+            <label class="me-2">
+                <input type="radio" name="Rating" value="2"> 2 Stars
+            </label>
+            <label class="me-2">
+                <input type="radio" name="Rating" value="3"> 3 Stars
+            </label>
+            <label class="me-2">
+                <input type="radio" name="Rating" value="4"> 4 Stars
+            </label>
+            <label>
+                <input type="radio" name="Rating" value="5"> 5 Stars
+            </label>
+        </div>
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <!-- Submit and Back buttons -->
+    <div class="text-center justify-content-between">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a asp-controller="Dashboard" asp-action="ClientDashboard" class="btn btn-secondary">Back to Home</a>
+    </div>
+</form>

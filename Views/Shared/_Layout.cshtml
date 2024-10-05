@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" asp-href-include="/lib/bootstrap/css/bootstrap.min.css" />
+    <link asp-href-include="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <!-- Custom css -->
+    <link rel="stylesheet" asp-href-include="/css/custom.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: #050a30;">
+        <div class="container">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="navbar-brand" href="#">
+                    <img src="~/images/Logo.png" alt="QQVAULT." style="width: 120px;" />
+                </a>
+            }
+            else
+            {
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/Logo.png" alt="QQVAULT." style="width: 120px;" />
+                </a>
+            }
+
+            <!-- Toggler/collapsible Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MyNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="MyNavbar">
+                <ul class="navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <!-- Dashboard link logic based on user role -->
+                        @if (User.IsInRole("Administrator") || User.IsInRole("Consultant") || User.IsInRole("FinancialAdviser"))
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Dashboard" asp-action="AdminDashboard" class="nav-link">Dashboard</a>
+                            </li>
+                        }
+                        else if (User.IsInRole("Client"))
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Dashboard" asp-action="ClientDashboard" class="nav-link">Dashboard</a>
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Client"))
+                        {
+                            <li class="nav-item">
+                                <a asp-controller="Transactions" asp-action="Create" class="nav-link">Create Transaction</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a asp-controller="Feedback" asp-action="Create" class="nav-link">Feedback</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Notifications" asp-action="Index">
+                                    <i class="fas fa-bell"></i>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Transactions</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Transactions" asp-action="Index">Transaction Log</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">User management</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Users" asp-action="Index">View All Users</a>
+                                    @if (!User.IsInRole("FinancialAdviser")) // Hide View Logs for Advisers
+                                    {
+                                        <a class="dropdown-item" asp-controller="Users" asp-action="LoginRecords">View Logs</a>
+                                    }
+                                </div>
+                            </li>
+
+                            // Show Feedback link for all roles except FinancialAdviser
+                            @if (!User.IsInRole("FinancialAdviser"))
+                            {
+                                <li class="nav-item">
+                                    <a asp-controller="Feedback" asp-action="Index" class="nav-link">Feedback</a>
+                                </li>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <!-- Home option for unauthenticated users -->
+                        <li class="nav-item">
+                            <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                        </li>
+                    }
+                </ul>
+
+                <ul class="navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <form asp-action="Logout" asp-controller="Account" method="post">
+                                <button class="btn btn-link nav-link" type="submit">
+                                    <span class="fa fa-sign-out fa-lg"></span>&nbsp; Log Out
+                                </button>
+                            </form>
+                        </li>
+
+                        @if (User.IsInRole("Client"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Profile" asp-controller="Users">
+                                    <span class="fa fa-user-circle fa-lg"></span>&nbsp; Hello, @User.Identity.Name
+                                </a>
+                            </li>
+                        }
+                        else if (User.IsInRole("Administrator") || User.IsInRole("Consultant") || User.IsInRole("FinancialAdviser"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="AdminDashboard" asp-controller="Dashboard">
+                                    <span class="fa fa-user-circle fa-lg"></span>&nbsp; Hello, @User.Identity.Name
+                                </a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Register" asp-controller="Account">
+                                <span class="fa fa-user-plus fa-lg"></span>&nbsp; Sign Up
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Login" asp-controller="Account">
+                                <span class="fa fa-sign-in fa-lg"></span>&nbsp; Sign In
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="content container">
+        @RenderBody()
+        @RenderSection("Scripts", required: false)
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p><strong>QQVault Online Banking</strong></p>
+            <p>&copy; 2024 QQVault. All rights reserved.</p>
+            <p><a href="#" style="color: #00ABF0;">Terms of Service</a> | <a href="#" style="color: #00ABF0;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script asp-src-include="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

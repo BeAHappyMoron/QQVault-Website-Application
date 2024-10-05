@@ -1,0 +1,12 @@
+﻿@model QQVault.Models.ViewModels.AdviceViewModel
+
+<h2>Add Advice</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Message"></label>
+        <textarea asp-for="Message" class="form-control"></textarea>
+    </div>
+    <input type="hidden" name="UserId" value="@ViewBag.UserId" />
+    <button type="submit" class="btn btn-primary">Submit Advice</button>
+</form>

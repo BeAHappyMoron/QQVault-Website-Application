@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Transaction Successful";
+}
+
+<div class="container mt-5">
+    <div class="alert alert-success text-center">
+        <h1 class="display-4"><i class="fas fa-check-circle"></i> Transaction Successful!</h1>
+        <p class="lead">Your transaction has been completed successfully.</p>
+        <p class="text-muted">Thank you for using our service!</p>
+        
+        <div class="mt-4">
+            <a asp-controller="Dashboard" asp-action="ClientDashboard" class="btn btn-primary">
+                <i class="fas fa-home"></i> Back to Dashboard
+            </a>
+            <a asp-action="Create" class="btn btn-secondary">
+                <i class="fas fa-exchange-alt"></i> Create Another Transaction
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Transaction>
+
+@{
+    ViewData["Title"] = "Transactions";
+}
+
+<h2>Transactions</h2>
+<hr />
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        @TempData["Message"]
+    </div>
+}
+
+<table class="bluetable">
+    <thead>
+        <tr>
+            <th>Amount</th>
+            <th>Transaction Type</th>
+            <th>Source Account</th>
+            <th>Destination Account</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr>
+                <td>@transaction.Amount.ToString("C2")</td>
+                <td>@transaction.TransactionType</td>
+                <td>@transaction.SourceAccount?.AccountNumber</td>
+                <td>@transaction.DestinationAccount?.AccountNumber</td>
+                <td>@transaction.CreatedAt.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@transaction.TransactionId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

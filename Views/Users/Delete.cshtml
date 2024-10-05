@@ -1,0 +1,27 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Delete User";
+}
+
+<h2>Delete User</h2>
+<p class="text-danger">@ViewData["ErrorMessage"]</p>
+
+<h4>Are you sure you want to delete this user?</h4>
+<div>
+    <hr/>
+    @* Focus Blur Effects here 
+        Partial view (maybe)
+    *@
+
+
+    <form method="post" asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="LastName" />
+        <input type="submit" value="Delete" class="btn btn-primary" />
+        <a asp-controller="Users" asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+    </form>
+
+
+
+</div>

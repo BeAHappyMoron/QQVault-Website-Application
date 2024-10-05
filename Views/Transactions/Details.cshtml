@@ -1,0 +1,49 @@
+﻿@model QQVault.Models.ViewModels.TransactionDetailViewModel
+
+@{
+    ViewData["Title"] = "Transaction Details";
+}
+
+<h2>Transaction Details</h2>
+<hr />
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Transaction Information</h5>
+
+        <table class="bluetable">
+            <tbody>
+                <tr>
+                    <th scope="row">Source Account Number:</th>
+                    <td>@Model.SourceAccountNumber</td>
+                </tr>
+                <tr>
+                    <th scope="row">Source Name:</th>
+                    <td>@Model.SourceName @Model.SourceSurname</td>
+                </tr>
+                <tr>
+                    <th scope="row">Receiver Account Number:</th>
+                    <td>@Model.ReceiverAccountNumber</td>
+                </tr>
+                <tr>
+                    <th scope="row">Receiver Name:</th>
+                    <td>@Model.ReceiverName @Model.ReceiverSurname</td>
+                </tr>
+                <tr>
+                    <th scope="row">Date:</th>
+                    <td>@Model.CreatedAt.ToLongDateString()</td>
+                </tr>
+                <tr>
+                    <th scope="row">Amount:</th>
+                    <td>@Model.Amount.ToString("C2")</td>
+                </tr>
+                <tr>
+                    <th scope="row">Transaction Type:</th>
+                    <td>@Model.TransactionType</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a asp-action="Index" class="btn btn-secondary">Back to Transactions</a>
+    </div>
+</div>

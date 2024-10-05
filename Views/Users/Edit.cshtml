@@ -1,0 +1,56 @@
+﻿@model QQVault.Models.User
+@{
+    ViewBag.Title = "Edit User";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="UserType" class="form-label"></label>
+        <select asp-for="UserType" class="form-select" asp-items="Html.GetEnumSelectList<UserType>()"></select>
+        <span asp-validation-for="UserType" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NumberInput" class="form-label"></label>
+        <input asp-for="NumberInput" class="form-control" />
+        <span asp-validation-for="NumberInput" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CellPhoneNumber" class="form-label"></label>
+        <input asp-for="CellPhoneNumber" class="form-control" />
+        <span asp-validation-for="CellPhoneNumber" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Password" class="form-label">Password</label>
+        <input name="Password" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

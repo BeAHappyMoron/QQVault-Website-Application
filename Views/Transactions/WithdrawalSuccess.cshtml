@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Withdrawal Successful";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3>Withdrawal Receipt</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="text-success">Transaction Successful!</h5>
+            <p class="lead">You have successfully withdrawn money!</p>
+            <hr />
+            <div class="text-center">
+                <p><strong>Receipt Number:</strong> <span class="badge bg-secondary">@ViewBag.ReceiptNumber</span></p> <!-- Displaying the receipt number -->
+                <p><strong>Finance Officer:</strong> Herman Saayman</p>
+            </div>
+            <hr />
+            <h5>Collection Details</h5>
+            <p>
+                Please collect your cash from the nearest finance office.
+            </p>
+            <h6>Office Address:</h6>
+            <p>
+                University of the Free State<br />
+                Kestell Road<br />
+                Qwaqwa, Phuthaditjhaba, 9866<br />
+                Intsika Building, Office 0012
+            </p>
+            <div class="text-center">
+                <a asp-controller="Dashboard" asp-action="ClientDashboard" class="btn btn-primary">Return to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>

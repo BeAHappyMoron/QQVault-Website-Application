@@ -1,0 +1,61 @@
+﻿@model QQVault.Models.ViewModels.UserViewModels.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Register" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="UserType" class="form-label">User Type</label>
+        <select asp-for="UserType" class="form-select" asp-items="Html.GetEnumSelectList<UserType>()"></select>
+        <span asp-validation-for="UserType" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NumberInput" class="form-label">Student/ID/Staff Number</label>
+        <input asp-for="NumberInput" class="form-control" placeholder="Enter your Student/ID/Staff Number" />
+        <span asp-validation-for="NumberInput" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label">First Name</label>
+        <input asp-for="FirstName" class="form-control" placeholder="Enter your first name" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label">Last Name</label>
+        <input asp-for="LastName" class="form-control" placeholder="Enter your last name" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">Email</label>
+        <input asp-for="Email" class="form-control" placeholder="Enter your email address" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CellPhoneNumber" class="form-label">Cell Phone Number</label>
+        <input asp-for="CellPhoneNumber" class="form-control" placeholder="Enter your cell phone number" />
+        <span asp-validation-for="CellPhoneNumber" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label">Password</label>
+        <input asp-for="Password" class="form-control" placeholder="Enter your password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+        <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm your password" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Register</button>
+</form>

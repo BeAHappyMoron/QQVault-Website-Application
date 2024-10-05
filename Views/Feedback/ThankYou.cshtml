@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Thank You";
+}
+
+<div class="container mt-5">
+    <div class="alert alert-success text-center">
+        <h1 class="display-4"><i class="fas fa-smile"></i> Thank You for Your Feedback!</h1>
+        <p class="lead">We appreciate your input and will get back to you if necessary.</p>
+        <p class="text-muted">Thank you for using our service!</p>
+
+        <div class="mt-4">
+            <a asp-controller="Dashboard" asp-action="ClientDashboard" class="btn btn-primary">
+                <i class="fas fa-home"></i> Return to Home
+            </a>
+            <a asp-action="Create" class="btn btn-secondary">
+                <i class="fas fa-plus-circle"></i> Submit Another Feedback
+            </a>
+        </div>
+    </div>
+</div>

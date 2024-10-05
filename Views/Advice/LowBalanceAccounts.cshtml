@@ -1,0 +1,22 @@
+﻿@model IEnumerable<BankAccount>
+
+<h2>Low Balance Accounts</h2>
+<h4>Accounts with Balance Less than 500</h4>
+
+<table class="bluetable">
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>@account.AccountNumber</td>
+                <td>@account.Balance.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
