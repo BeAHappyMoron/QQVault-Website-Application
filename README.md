@@ -1,4 +1,7 @@
-🚀 Usage
+Background:
+QQVault is a secure digital banking system built using CSS, Bootstrap, C# and various ASP.NET libraries (i.e Identity.EntityFrameworkCore, AspNetCore.Mvc, AspNetCore.Authentication, AspNetCore.Authorization, EntityFrameworkCore.Sqlite). It manages user accounts, transactions, and role-based access, enabling admins, consultants, and clients to handle banking tasks like transfers, transaction history, and notifications. The system ensures security with login records and file uploads.
+
+🚀 Usage:
 
 1. Register in your desired role
 2. Explore your dashboard, view transaction history, account balances etc.
@@ -24,7 +27,7 @@ Install .NET Runtime
 3.📚 Dependencies:
 Install required NuGet packages (e.g., Microsoft.AspNetCore.Mvc, EntityFramework).
 
-4. Run the Application
+4. Run the Application:
 
 Steps
 1. Clone the repository.
