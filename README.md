@@ -11,7 +11,8 @@ QQVault is a secure digital banking system built using CSS, Bootstrap, C# and va
 6. Respective notifications will be sent to both accounts involved in the transaction (Receiver and Sender).
 7. In the case of a withdrawal, a notification will be sent to the accounts involved in the transaction.
 8. Input your account number as both the receiver and sender when making a withdrawal.
-9. Your feedback would be greatly appreciated. Enjoy!
+9. There is a dedicated feedback page to review the application and overall experience.
+10. Your feedback would be greatly appreciated. Enjoy!
 
 🛠️ How to Run:
 This is an ASP.NET application created using Visual Studio in C#. Ensure to install all the necessary dependencies required to run the application on your device.
