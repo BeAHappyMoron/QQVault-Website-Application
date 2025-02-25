@@ -1,4 +1,4 @@
-Usage
+🚀 Usage
 
 1. Register in your desired role
 2. Explore your dashboard, view transaction history, account balances etc.
@@ -10,10 +10,10 @@ Usage
 8. Input your account number as both the receiver and sender when making a withdrawal.
 9. Your feedback would be greatly appreciated. Enjoy!
 
-How to run:
+🛠️ How to Run:
 This is an ASP.NET application created using Visual Studio in C#. Ensure to install all the necessary dependencies required to run the application on your device.
 
-1. Development Tools
+1. 🖥️ Development Tools:
 Visual Studio (with ASP.NET workload) or Visual Studio Code (with C# extension).
 
 .NET SDK (for ASP.NET Core) or .NET Framework (for ASP.NET MVC 5).
@@ -21,7 +21,7 @@ Visual Studio (with ASP.NET workload) or Visual Studio Code (with C# extension).
 2. Runtime
 Install .NET Runtime
 
-3. Dependencies
+3.📚 Dependencies:
 Install required NuGet packages (e.g., Microsoft.AspNetCore.Mvc, EntityFramework).
 
 4. Run the Application
@@ -34,8 +34,8 @@ Steps
 
 Test in a modern browser (e.g., Chrome, Edge).
 
-Features
-1. User Registration & Role-based Accounts
+✨ Features
+1. 👤 User Registration & Role-based Accounts
 Users can register as one of three roles:
 Student (using a 10-digit student number)
 Staff (using a 7-digit staff number)
@@ -46,14 +46,14 @@ Staff accounts start with UFS
 Guest accounts start with GST, all followed by 7 random digits
 Each account starts with a simulated balance of R500 for testing purposes.
 
-2. Account Management
+2. 💼 Account Management
 Multiple accounts can be created per user.
 Accounts can make transfers to other users or withdraw money. A receipt (with a reference number) is generated for cash withdrawals.
 
-3. Transaction Notifications
+3. 🔔 Transaction Notifications
 A notification system is integrated to keep users informed of all their transactions. Notifications can be viewed on a dedicated page.
 
-4. Personal Dashboard
+4. 📊 Personal Dashboard
 After successful login, users are redirected to their personal dashboard. The dashboard is the central hub for:
 Viewing and managing transactions
 Checking transaction history
@@ -61,10 +61,13 @@ Viewing account balances
 Viewing personal details in the profile page
 Financial advisory messages will appear when a user exceeds a certain spending threshold.
 
-5. Admin Functionality
+5. 👑 Admin Functionality
 Admins can access a custom dashboard for managing the entire system.
 Admins can:
 View all user transactions and transaction details
 View detailed information about users
 Add, modify, and delete user accounts
 Perform actions based on user roles (Student, Staff, Guest)
+
+🤝 Contributing
+Contributions are welcome! Please fork the repository and submit a pull request.
