@@ -5,10 +5,34 @@ Usage
 3. Make a transaction of your choice
 4. To make a transfer you will need to register 2 separate accounts
 5. You will need both account numbers to make a transfer (preferably write them down on a piece of paper for convinience)
-6. A respective notification will be sent to both accounts involved in the transaction (Receiver and Sender).
-7. In the case of a withdrawal, a notification will be sent to the account involved in the transaction.
+6. Respective notifications will be sent to both accounts involved in the transaction (Receiver and Sender).
+7. In the case of a withdrawal, a notification will be sent to the accounts involved in the transaction.
 8. Input your account number as both the receiver and sender when making a withdrawal.
 9. Your feedback would be greatly appreciated. Enjoy!
+
+How to run:
+This is an ASP.NET application created using Visual Studio in C#. Ensure to install all the necessary dependencies required to run the application on your device.
+
+1. Development Tools
+Visual Studio (with ASP.NET workload) or Visual Studio Code (with C# extension).
+
+.NET SDK (for ASP.NET Core) or .NET Framework (for ASP.NET MVC 5).
+
+2. Runtime
+Install .NET Runtime
+
+3. Dependencies
+Install required NuGet packages (e.g., Microsoft.AspNetCore.Mvc, EntityFramework).
+
+4. Run the Application
+
+Steps
+1. Clone the repository.
+2. Open the project in Visual Studio.
+3. Restore NuGet packages and build the solution.
+4. Run the application using F5 or dotnet run.
+
+Test in a modern browser (e.g., Chrome, Edge).
 
 Features
 1. User Registration & Role-based Accounts
