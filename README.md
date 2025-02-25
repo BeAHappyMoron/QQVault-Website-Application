@@ -4,7 +4,7 @@ Usage
 2. Explore your dashboard, view transaction history, account balances etc.
 3. Make a transaction of your choice
 4. To make a transfer you will need to register 2 separate accounts
-5. You will need both account numbers to make a transfer (preferably write them down on a piece of paper for convinience)
+5. You will need both account numbers to make a transfer (preferably write them down on a piece of paper for convenience)
 6. Respective notifications will be sent to both accounts involved in the transaction (Receiver and Sender).
 7. In the case of a withdrawal, a notification will be sent to the accounts involved in the transaction.
 8. Input your account number as both the receiver and sender when making a withdrawal.
